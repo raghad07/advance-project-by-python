@@ -21,7 +21,7 @@ class Flatmate:
 
     def pays(self,bill,flatmate2):
         weight= self.days_in_house/(self.days_in_house+flatmate2.days_in_house) 
-        to_pay=bill.amount
+        to_pay=bill.amount*weight
         return to_pay  
 
 class PdfReport:
@@ -53,12 +53,20 @@ class PdfReport:
         pdf.cell(w=150,h=25,txt=flatmate2_pay,border=0, ln=1)   
          pdf.output(self,filename)  
          webbrowser.open(self,filename)  
+        
 amount=float(input('Hi user,enter the bill amount: ')) 
-period=int(input('What is the bill period? E.g April 2021: '))  
+period=int(input('What is the bill period? E.g April 2021: '))
+
+name1=input('What is your name? ')
+days_in_house1=int(input(f'How many days did {name1} stay in the house during the bill period? ')
+                   
+name2=input('What is the name of the other flatmate? ')
+days_in_house2=int(input(f'How many days did {name2} stay in the house during the bill period? ')                   
 
 the_bill=Bill(amount,period)
 flatmate1=Flatmate(name1,days_in_house1)
 flatmate2=Flatmate(name2,days_in_house2)
+                   
 print(f'{flatmate1.name} pays:' ,flatmate1.pays(the_bill,flatmate2))
 print(f'{flatmate2.name} pays:' ,flatmate2.pays(the_bill,flatmate1))
 

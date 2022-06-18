@@ -1,0 +1,14 @@
+Title: Flatmates Bill
+Description: An app that gets as inputs the anoumt of bill for a particular period
+and return how mach each of the flatmate has to pay. It also generates a PDF report 
+stating the names of the flatmates,the period, and how mach each of them had to pay.
+Objects: Bill:
+           anoumt
+           period
+        flatmate:
+           name
+           days_in_house
+           pay(bill)
+        PdfReport:
+        filename
+        generate(flatmate1,flatmate2, bill)
